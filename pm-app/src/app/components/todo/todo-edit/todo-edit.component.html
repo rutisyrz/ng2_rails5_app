@@ -1,0 +1,51 @@
+<div class="section">
+  <div class="red">  	
+  	<b>Open Issues: <br /></b>
+		<ul>
+			<li> * For Developer, API to fetch Developers throws exception - "You don\'t have permission" . 
+				<br /> -> FIX - API to get list of Developers should not execute and Dropdown of developers should not be visible  
+				<br /> -> However, Developer can change status
+			</li>
+			<li>
+				* For Manager, Show Current Assigned Developer as selected in Dropdown
+			</li>
+			<li> * Show Current Status as selected in Dropdown </li>
+		</ul>
+	</div>
+</div>
+<div class="section">
+  <span class="flow-text">  	
+		Edit Todo
+	</span>
+	<div class="divider"></div>  
+	<h5>
+		<b>Title :</b> {{todo.name}} <br />
+		<b>Status :</b> {{todo.status}} 
+		<select (change)="updateTodoStatus($event.target.value)">
+	    <option>Select Status</option>
+	    <option *ngFor="let name of options"
+	        [value]="name">{{name}}</option>
+	  </select>
+
+	</h5>
+</div>
+<div class="divider"></div>
+<div class="section">
+
+	<div class="row">
+		<div class="col s12 m6 l3 right-align">
+			<span class="flow-text">  	
+				Assign To:
+			</span>			
+		</div>
+		<div class="col s12 m6 l9">
+			<!-- [(ngModel)]="todo.user_id" -->
+			<select (change)="assignTodo($event.target.value)" >  
+		    <option>Select Developer</option>
+		    <option *ngFor="let developer of availableDevelopers"
+	        [value]="developer.id">{{developer.email}}
+	      </option>
+		  </select>
+		</div>
+	</div>
+</div>

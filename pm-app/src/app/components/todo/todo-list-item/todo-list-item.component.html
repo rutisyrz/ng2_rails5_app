@@ -1,0 +1,14 @@
+<div class="row card-panel grey lighten-5">
+  <div class="col s12 m4 l5">
+  	{{todo.name}}
+  </div>
+  <div class="col s12 m4 l4">
+  	{{todo.project}}
+  </div>
+  <div class="col s12 m2 l2">
+  	{{todo.status}}    
+  </div>
+  <div class="col s12 m2 l1">
+    <a [routerLink]="['/todos', todo.id, 'edit']">Edit </a>
+  </div>
+</div>	

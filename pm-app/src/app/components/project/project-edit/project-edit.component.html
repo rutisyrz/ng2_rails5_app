@@ -1,0 +1,86 @@
+<div class="section">
+  <div class="yellow lighten-3">  	
+  	<b>Note: <br /></b>
+		<ul>
+			<li> 
+				* For Manager, it throws error "Developer is already associated with a project" when a manger tries to add the same developer again
+			</li>			
+		</ul>
+	</div>
+</div>
+
+<div class="section">
+  <span class="flow-text">  	
+		Edit Project
+	</span>
+	<div class="divider"></div>  
+	<h5><b>Title :</b> {{project.name}}</h5>
+</div>
+
+<div class="section">
+
+	<div class="row">
+		<div class="col s12 m12 l7" >
+			<!-- TODO Section -->
+			<div class="section">
+				<span class="flow-text">  	
+					Add a new Todo
+				</span>
+				<div class="divider"></div>  
+				
+				<input class="newTodo" placeholder="Enter todo title here" autofocus="" [(ngModel)]="newTodo.name" (keyup.enter)="addTodo(newTodo)">
+				<div class="divider"></div>  
+			  <span class="flow-text">  	
+					Todo list
+				</span>
+				<div class="divider"></div>  
+
+				<div *ngFor="let todo of todos">
+
+				  <div class="row card-panel grey lighten-5">
+					  <div class="col s12 m6 l7">
+					  	{{todo.name}}
+					  </div>		  
+					  <div class="col s12 m3 l3">
+					  	{{todo.status}}
+					  </div>
+					  <div class="col s12 m3 l2">
+					    <a [routerLink]="['/todos', todo.id, 'edit']">Edit </a>
+					  </div>
+					</div>	
+
+				</div>
+			</div>
+		</div>
+		<div class="col s12 m12 l4 offset-l1" >
+			<!-- DEVELOPER Section -->
+			<div class="section">
+				<span class="flow-text">  	
+					Add a new Developer
+				</span>
+				<div class="divider"></div>
+				<p>
+					<select (change)="addDeveloper($event.target.value)">  
+				    <option>Select Developer</option>
+				    <option *ngFor="let developer of availableDevelopers"
+			        [value]="developer.id">{{developer.email}}
+			      </option>
+				  </select>
+				</p>
+				<div class="divider"></div>  
+			  <span class="flow-text">  	
+					Developers list
+				</span>
+				<div *ngFor="let developer of assignedDevelopers">
+					<div class="row card-panel grey lighten-5">
+					  <div class="col s12 m12 l11">
+					  	{{developer.email}}
+					  </div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+

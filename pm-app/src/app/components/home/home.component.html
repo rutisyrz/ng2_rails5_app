@@ -1,0 +1,74 @@
+<div class="row">
+	<div class="col s12 m6 l6">
+		<!-- Backend Technology stack -->
+		<div class="row">
+			<h5> Backend Technology Stack </h5>
+			<ul>
+				<li> Rails 5 App in API mode </li>
+				<li> ruby 2.3.4p301 </li>
+				<li> User Authorizarion - gem 'devise_token_auth' &amp; gem 'omniauth' </li>
+				<li> Permissions control - gem 'cancancan' and STI (Single Table Inheritance) </li>
+				<li> gem 'active_model_serializers' </li>
+			</ul>
+		</div>
+	
+		<!-- Frontend Technology stack -->
+		<div class="row">
+			<h5> Frontend Technology Stack </h5>
+			<ul>
+				<li> Angular2 App </li>
+				<li> Angular CLI to generate assets </li>
+				<li> User Authorizarion - angular2-token </li>
+				<li> </li>
+			</ul>
+		</div>
+
+		<!-- Default Data -->
+		<div class="row">
+			<h5> Default users data </h5>
+			<b> Manager type User </b>
+			<ul>
+				<li> email: 'hoeger@gmail.com', password: "12345678" </li>				
+			</ul>
+
+			<b> Developers type User </b>
+			<ul>
+				<li> email: 'sincere@gmail.com', password: "12345678" </li>
+				<li> email: 'shanna@gmail.com', password: "12345678" </li>
+				<li> email: 'nathan@gmail.com', password: "12345678" </li>
+			</ul>
+		</div>
+
+	</div>
+
+	<div class="col s12 m6 l6">
+		<div class="row">
+			<h5> Required Notes on required pages have been added in below format </h5>
+		  <div class="yellow lighten-3">  	
+		  	<b>Note: <br /></b>
+				<ul>
+					<li> * For Developer, xxxx </li>
+					<li> * For Manager, xxx </li>			
+				</ul>
+			</div>
+		</div>
+		<div class="row">
+			<h5> Open Issues on required pages have been mentioned in below format </h5>
+		  <div class="red">  	
+		  	<b>Open Issues: <br /></b>
+				<ul>
+					<li> * For Developer, API to fetch Developers throws exception - "You don\'t have permission" . 
+						<br /> -> FIX - API to get list of Developers should not execute and Dropdown of developers should not be visible  
+						<br /> -> However, Developer can change status
+					</li>
+					<li>
+						* For Manager, Show Current Assigned Developer as selected in Dropdown
+					</li>
+					<li> * Show Current Status as selected in Dropdown </li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	
+</div>
+

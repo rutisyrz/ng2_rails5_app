@@ -1,0 +1,35 @@
+<div class="section">
+  <div class="yellow lighten-3">  	
+  	<b>Note: <br /></b>
+		<ul>
+			<li> 
+				* For Developer, It shows list of assigned todos 				
+			</li>
+			<li>
+				* For Manager, It shows list of unassigned todos of all the projected created by manager
+			</li>			
+		</ul>
+	</div>
+</div>
+
+<section class="main" *ngIf="todos.length > 0">
+	<div class="row card-panel teal lighten-2">
+	  <div class="col s12 m4 l5">
+	  	Title
+	  </div>
+	  <div class="col s12 m4 l4">
+	  	Project
+	  </div>
+	  <div class="col s12 m2 l2">
+	  	Status
+	  </div>
+	  <div class="col s12 m2 l1">
+	  	Action
+	  </div>
+  </div>
+	<div *ngFor="let todo of todos">
+	  <app-todo-list-item [todo]="todo"
+    										(edit)="onEditTodo($event)"> 
+    </app-todo-list-item>	
+	</div>
+</section>

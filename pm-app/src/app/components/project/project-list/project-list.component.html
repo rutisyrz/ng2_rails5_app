@@ -1,0 +1,38 @@
+<div class="section">
+  <div class="yellow lighten-3">  	
+  	<b>Note: <br /></b>
+		<ul>
+			<li> 
+				* For Developer, when a developer tries to Create a new Project, it throws error "You don\'t have permission"
+			</li>
+			<li>
+				* For Manager, It shows list of projected created by manager and also allows to Create new projects
+			</li>			
+		</ul>
+	</div>
+</div>
+
+<div class="section">
+  <span class="flow-text">  	
+		Add a new Project
+	</span>
+	<div class="divider"></div>  
+	
+	<input class="newProject" placeholder="Enter project title here" autofocus="" [(ngModel)]="newProject.name" (keyup.enter)="addProject(newProject);">
+
+</div>
+<div class="divider"></div>  
+<section class="main" *ngIf="projects.length > 0">	
+	<div class="row card-panel teal lighten-2">
+	  <div class="col s8 m10 l10">
+	  	Title
+	  </div>	  
+	  <div class="col s4 m2 l2">
+	  	Action
+	  </div>
+  </div>
+	<div *ngFor="let project of projects">
+	  <app-project-list-item [project]="project"> 
+    </app-project-list-item>	
+	</div>
+</section>
