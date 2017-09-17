@@ -27,28 +27,8 @@ export class ProjectDataService {
   }
 
   // Simulate POST /projects/:id/add_developer(.:format)
-  public addDeveloper(projectId: number, developerId: number): Observable<User> {
+  addDeveloper(projectId: number, developerId: number): Observable<User> {
     return this.api.addDeveloper(projectId, developerId);
-  }
-
-
-
-
-
-
-  // Simulate PUT /projects/:id
-  updateProject(project: Project): Observable<Project> {
-    return this.api.updateProject(project);
-  }
-
-  // Simulate GET /projects
-  getAllProjects(): Observable<Project[]> {
-    return this.api.getAllProjects();
-  }
-
-  // Simulate GET /projects?manager_id=ID
-  getAllProjectsByManagerId(managerId: number): Observable<Project[]> {
-    return this.api.getAllProjectsByManagerId(managerId);
   }
 
 }

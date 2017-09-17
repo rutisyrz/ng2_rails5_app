@@ -23,6 +23,13 @@ export class UserDataService {
     return this.api.getAssignedProjects(userId);
   }
 
+  // Simulate GET /users/:id/projects_dashboard
+  // Get Project-Todos data to render on dashaboard
+  getProjectDashboardData(userId: number): Observable<any[]> { 
+    return this.api.getProjectDashboardData(userId);
+  }
+
+  // Simulate GET /users/?user_type=developer
   // List of Developers
   getAllDevelopers(): Observable<User[]> {
     return this.api.getAllDevelopers();

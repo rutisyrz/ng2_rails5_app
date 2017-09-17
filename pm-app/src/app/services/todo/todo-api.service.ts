@@ -19,19 +19,18 @@ export class TodoApiService {
   						private baseService: BaseService) { 
   }
 
-  // API: GET /todos
-  public getAllTodos(): Observable<Todo[]> {
-  	return this.getAllTodosHelper(API_URL + '/todos');
-  }
-
-  // API: GET /todos?developer_id=ID
-  public getAllTodosByDeveloperId(developer_id: number): Observable<Todo[]> {
-  	return this.getAllTodosHelper(API_URL + '/todos?developer_id=' + developer_id.toString());
-  }
-
   // API: GET /todos?project_id=ID
-  public getAllTodosByProjectId(project_id: number): Observable<Todo[]> {
-  	return this.getAllTodosHelper(API_URL + '/todos?project_id=' + project_id.toString());
+  public getAllTodosByProjectId(project_id: number): Observable<{}> { 
+  	return this.http
+	    .get(API_URL + '/projects/' + project_id.toString() + '/todos', this.baseService.options)
+	    .map(response => {	    	
+	      const resp = response.json();
+	      const result = {'todos': [], 'stats': []};
+	      result.todos = resp.todos.map((todo) => new Todo(todo));
+	      result.stats = resp.stats;
+	      return result;
+	    })
+	    .catch(this.baseService.handleError);
   }
 
   // API: POST /todos
@@ -63,16 +62,5 @@ export class TodoApiService {
 	    })
 	    .catch(this.baseService.handleError);
 	}
-
-	//  PRIVATE methods
-	private getAllTodosHelper(url: string): Observable<Todo[]> {
-	  return this.http
-	    .get(url, this.baseService.options)
-	    .map(response => {
-	      const todos = response.json();
-	      return todos.map((todo) => new Todo(todo));
-	    })
-	    .catch(this.baseService.handleError);
-	}  
 
 }

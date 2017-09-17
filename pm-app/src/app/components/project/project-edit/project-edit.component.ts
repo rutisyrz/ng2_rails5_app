@@ -24,8 +24,9 @@ export class ProjectEditComponent implements OnInit {
   assignedDevelopers: User[] = [];
   availableDevelopers: User[] = [];
   projectId: number;
+  pieChartData: {};
 
-  constructor(private baseService: BaseService,
+  constructor(public baseService: BaseService,
   						private route: ActivatedRoute,
               private projectDataService: ProjectDataService,
               private userDataService: UserDataService,
@@ -42,14 +43,20 @@ export class ProjectEditComponent implements OnInit {
   		.getProjectById(this.projectId) 
   		.subscribe(
   			(project) => {
-  				this.project = project;
+  				this.project = project;          
 
           // Get all todos associated with a project
           this.todoDataService
             .getAllTodosByProjectId(this.project.id)
             .subscribe(
-              (todos) => {
-                this.todos = todos;
+              (response) => {
+                this.todos = response['todos'];
+
+                this.pieChartData = {
+                  chartType: 'PieChart',
+                  dataTable: response['stats'],
+                  options: {'title': 'Project Status'},
+                };
               })
 
           // Get all developers associated with a project  

@@ -1,5 +1,5 @@
 <div class="section">
-  <div class="yellow lighten-3">  	
+  <div class="notice">  	
   	<b>Note: <br /></b>
 		<ul>
 			<li> 
@@ -13,12 +13,25 @@
   <span class="flow-text">  	
 		Edit Project
 	</span>
-	<div class="divider"></div>  
-	<h5><b>Title :</b> {{project.name}}</h5>
+	<span>
+		<a class="goBack" (click)="baseService.goBack()">Back</a>
+	</span>
+	<div class="divider"></div>  	
 </div>
 
 <div class="section">
 
+	<div class="row">
+		<div class="col s12 m6 l6" >
+			<h5><b>Title :</b> {{project.name}}</h5>			
+		</div>
+
+		<div class="col s12 m6 l6" >
+			<h5> Project Status </h5>
+		  <google-chart [data]="pieChartData"></google-chart>
+		</div>
+	</div>
+	<div class="clearfix"></div>
 	<div class="row">
 		<div class="col s12 m12 l7" >
 			<!-- TODO Section -->

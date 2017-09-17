@@ -1,0 +1,44 @@
+.dash_container {
+    white-space: nowrap;
+    width: 100%;
+    overflow-x: auto;
+}
+.dash_container .project {
+    border: 1px solid;
+    width: 350px;
+    height: auto;
+    display: inline-block;    
+    /* for IE6/7, remove if you don't need to support those browsers */
+    *display: inline;
+    zoom: 1;
+    vertical-align:top;
+}
+
+.dash_container .status {
+    border: 1px solid;
+    width: 100px;
+    height: auto;
+    display: inline-block;    
+    /* for IE6/7, remove if you don't need to support those browsers */
+    *display: inline;
+    zoom: 1;
+    vertical-align:top;
+}
+
+.todo_block {
+    height: 12em;
+    width: 120%;
+    padding: 0 1em;
+    display: inline-block;
+    overflow-x: auto; 
+    white-space: nowrap;
+}
+
+.todo_status_block {
+    height: 12em;
+    width: 100%;
+    padding: 0 1em;
+    display: inline-block;
+    overflow-x: auto; 
+    white-space: nowrap;
+}

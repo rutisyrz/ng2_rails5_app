@@ -5,34 +5,40 @@
     <div class="nav-wrapper blue ">
       <a [routerLink]="['']" id="logo-container" class="brand-logo">Home</a>
 
-      <ul class="right hide-on-med-and-down">
+      <div *ngIf="!(authService.userSignedIn$ | async)">
+        <ul class="right hide-on-med-and-down">        
+          <li> 
+            <a (click)="presentAuthDialog()" >LOGIN</a>
+          </li>
+          <!-- <li> 
+            <a (click)="presentAuthDialog('register')">REGISTER</a>
+          </li> -->
+        </ul>  
+      </div>
 
-        <li *ngIf="!(authService.userSignedIn$ | async)"> 
-        	<a (click)="presentAuthDialog()" >LOGIN</a>
-        </li>
-        <!-- <li *ngIf="!(authService.userSignedIn$ | async)"> 
-        	<a (click)="presentAuthDialog('register')">REGISTER</a>
-        </li> -->
-
-        <li *ngIf="(authService.userSignedIn$ | async)">
-        	<a [routerLink]="['/profile']">PROFILE</a>
-        </li>
-        <li *ngIf="(authService.userSignedIn$ | async)">
-          <a [routerLink]="['/projects']">PROJECTS</a>
-        </li>
-        <li *ngIf="(authService.userSignedIn$ | async)">
-          <a [routerLink]="['/todos']">TODOS</a>
-        </li>
-        <li *ngIf="(authService.userSignedIn$ | async)">
-        	<a (click)="logOut()">LOGOUT</a>
-        </li>
-
-      </ul>
+      
+      <div *ngIf="(authService.userSignedIn$ | async)">
+        <ul class="right hide-on-med-and-down">
+          <li>
+            <a [routerLink]="['/dashboard']">DASHBOARD</a>
+          </li>
+          <li>
+            <a [routerLink]="['/profile']">PROFILE</a>
+          </li>
+          <li>
+            <a [routerLink]="['/projects']">PROJECTS</a>
+          </li>
+          <li>
+            <a [routerLink]="['/todos']">TODOS</a>
+          </li>
+          <li>
+            <a (click)="logOut()">LOGOUT</a>
+          </li>
+        </ul>
+      </div>
 
     </div>
-
   </nav>
-
 </div>
 
 <app-auth-dialog #authDialog ></app-auth-dialog>

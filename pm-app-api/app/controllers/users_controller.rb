@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!
+  load_and_authorize_resource
+  before_action :authenticate_user!, :except => [:todos]
   
   # GET /users
   def index
@@ -17,9 +18,7 @@ class UsersController < ApplicationController
   # Daveloper can view only his/her assigned todos
   # Manager can view everyone's todos
   def todos
-    authorize! :list_todos, @current_user if @current_user.manager? || params[:id].to_i == @current_user.id
-    @todos = Todo.list(developer_id: params[:id])
-    render json: @todos
+    render json: @current_user.todo_list
   end
 
   # GET /users/1/projects
@@ -27,8 +26,13 @@ class UsersController < ApplicationController
   # Manager can view projects Created By him/her
   # Manager can use 'Projects#Index' API with URL param 'manager_id' to filter projects created by other Managers
   def projects
-  	authorize! :list_projects, @current_user if @current_user.manager? && params[:id].to_i == @current_user.id
-    @projects = Project.list(manager_id: params[:id])
-    render json: @projects
+    render json: @current_user.projects_list
+  end
+
+  # GET /users/1/projects_dashboard
+  #
+  # Dashboard where Manager can view projects and todos list grouped by status
+  def projects_dashboard
+    render json: @current_user.projects_dashboard
   end
 end

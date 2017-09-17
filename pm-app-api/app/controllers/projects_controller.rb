@@ -6,7 +6,7 @@ class ProjectsController < ApplicationController
 
   # GET /projects
   def index
-    @projects = Project.list(params)
+    @projects = Project.all
 
     render json: @projects
   end
@@ -45,6 +45,11 @@ class ProjectsController < ApplicationController
   def developers
     @developers = @project.developers.inject([]) { |result, user| result << {id: user.id, email: user.email} }
     render json: @developers
+  end
+
+  # GET /projects/1/todos
+  def todos    
+    render json: @project.todo_details
   end
 
   # POST /projects/:id/add_developer

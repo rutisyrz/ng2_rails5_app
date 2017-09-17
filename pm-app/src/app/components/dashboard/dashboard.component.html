@@ -1,0 +1,60 @@
+<div class="section">
+  <span class="flow-text">  	
+		Dashboard
+	</span>
+	<span>
+		<a class="goBack" (click)="baseService.goBack()">Back</a>
+	</span>
+	<div class="divider"></div>  	
+</div>
+
+<div class="dash_container">
+	<div class="status">
+		<div class="card-panel teal lighten-2"> <span class="flow-text "> Status </span> </div>
+
+		<span *ngFor='let status of options'>
+			<div class="todo_status_block">	
+				<p><span>{{status}}</span></p> 
+			</div>
+			<div class="divider clearfix"></div>  
+		</span>
+	</div>
+
+  <div class="project" *ngFor='let project of projects'>
+			
+	  <div class="card-panel teal lighten-2"> <span class="flow-text "> {{project.project_name}} </span> </div>
+	  
+	  <div class="todo_block">
+	  	<p *ngFor='let todo of project.todos.unassigned'  >
+		  	<span>{{todo.todo_name}}</span><br />
+		  </p>
+	  </div>
+
+	  <div class="divider clearfix"></div>  
+	  
+	  <div class="todo_block">
+	  	<p *ngFor='let todo of project.todos.assigned'  >
+		  	<span>{{todo.todo_name}}</span><br />
+		  </p>
+	  </div>
+
+	  <div class="divider clearfix"></div>  
+	  
+	  <div class="todo_block">
+	  	<p *ngFor='let todo of project.todos.in_process'  >
+		  	<span>{{todo.todo_name}}</span><br />
+		  </p>
+	  </div>
+
+	  <div class="divider clearfix"></div>  
+	  
+	  <div class="todo_block">
+	  	<p *ngFor='let todo of project.todos.complete'  >
+		  	<span>{{todo.todo_name}}</span><br />
+		  </p>
+	  </div>
+
+	</div>
+
+</div>
+

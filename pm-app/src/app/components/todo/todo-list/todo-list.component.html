@@ -1,5 +1,5 @@
 <div class="section">
-  <div class="yellow lighten-3">  	
+  <div class="notice">  	
   	<b>Note: <br /></b>
 		<ul>
 			<li> 
@@ -13,6 +13,15 @@
 </div>
 
 <section class="main" *ngIf="todos.length > 0">
+	<span class="flow-text">  	
+		Todo List
+	</span>
+	<span>
+		<a class="goBack" (click)="baseService.goBack()">Back</a>
+	</span>
+	
+	<div class="divider"></div>
+	
 	<div class="row card-panel teal lighten-2">
 	  <div class="col s12 m4 l5">
 	  	Title

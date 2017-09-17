@@ -29,7 +29,7 @@ export class TodoEditComponent implements OnInit {
               private projectDataService: ProjectDataService,) {
   }
 
-  ngOnInit() {
+  public ngOnInit() {
 
     var options = Object.keys(TodoStatus);
     this.options = options.slice(options.length / 2);

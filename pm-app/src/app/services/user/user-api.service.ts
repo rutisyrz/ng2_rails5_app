@@ -21,7 +21,7 @@ export class UserApiService {
   						private baseService: BaseService) { 
   }
 
-  // GET /users/userId/todos
+  // GET /users/:id/todos
   // List of Todos assigned to a signed in user
   public getAssignedTodos(userId: number): Observable<Todo[]> {
 	  return this.http
@@ -33,7 +33,7 @@ export class UserApiService {
 	    .catch(this.baseService.handleError);
 	}  
 
-	// GET /users/userId/projects
+	// GET /users/:id/projects
   // List of Projects assigned to a signed in user
   public getAssignedProjects(userId: number): Observable<Project[]> {
 	  return this.http
@@ -45,6 +45,18 @@ export class UserApiService {
 	    .catch(this.baseService.handleError);
 	}  
 
+	// API:  GET /users/:id/projects_dashboard
+	// Get Project-Todos data to render on dashaboard
+  public getProjectDashboardData(userId: number): Observable<any[]> { 
+  	return this.http
+	    .get(API_URL + '/users/' + userId.toString() + '/projects_dashboard', this.baseService.options)
+	    .map(response => {	    	
+	      return response.json();	      
+	    })
+	    .catch(this.baseService.handleError);
+  }
+
+	// GET /users/?user_type=developer
 	// List of Developers
 	public getAllDevelopers(): Observable<User[]> {
 		return this.http

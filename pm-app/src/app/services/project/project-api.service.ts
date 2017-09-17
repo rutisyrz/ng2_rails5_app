@@ -64,39 +64,4 @@ export class ProjectApiService {
 	    .catch(this.baseService.handleError);
 	}
 
-
-
-
-
-  // API: PUT /projects/:id
-  public updateProject(project: Project): Observable<Project> {
-	  return this.http
-	    .put(API_URL + '/projects/' + project.id, project, this.baseService.options)
-	    .map(response => {
-	      return new Project(response.json());
-	    })
-	    .catch(this.baseService.handleError);
-	}
-
-	// API: GET /projects
-  public getAllProjects(): Observable<Project[]> {
-	  return this.getAllProjectsHelper(API_URL + '/projects');
-	}  
-
-	// API: GET /projects?manager_id=ID
-  public getAllProjectsByManagerId(manager_id: number): Observable<Project[]> {
-	  return this.getAllProjectsHelper(API_URL + '/projects?manager_id=' + manager_id.toString());
-	}  
-
-  // PRIVATE methods
-	private getAllProjectsHelper(url: string): Observable<Project[]> {
-	  return this.http
-	    .get(url, this.baseService.options)
-	    .map(response => {
-	      const projects = response.json();
-	      return projects.map((project) => new Project(project));
-	    })
-	    .catch(this.baseService.handleError);
-	}
-
 }

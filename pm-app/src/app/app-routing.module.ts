@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from "./guards/auth.guard";
 
 import { HomeComponent } from "./components/home/home.component";
+import { DashboardComponent } from "./components/dashboard/dashboard.component";
 import { ProfileComponent } from "./components/users/profile/profile.component";
 
 import { TodoListComponent } from './components/todo/todo-list/todo-list.component';
@@ -45,6 +46,11 @@ const routes: Routes = [
     path: 'projects/:id/edit',
     component: ProjectEditComponent,
     canActivate: [AuthGuard]
+  },
+  {
+    path: 'dashboard',
+    component: DashboardComponent,
+    canActivate: [AuthGuard]  
   }
 
 ];

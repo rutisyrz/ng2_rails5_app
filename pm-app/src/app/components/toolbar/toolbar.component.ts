@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { AuthDialogComponent } from "../auth/auth-dialog/auth-dialog.component";
-import { AuthApiService } from "../../services/auth-api/auth-api.service";
+import { AuthApiService } from "../../services/auth/auth-api.service";
 import { Router } from "@angular/router";
 
 @Component({

@@ -19,18 +19,8 @@ export class TodoDataService {
     return this.api.updateTodo(todo);
   }
 
-  // Simulate GET /todos
-  getAllTodos(): Observable<Todo[]> {
-    return this.api.getAllTodos();
-  }
-
-  // Simulate GET /todos?developer_id=ID
-  getAllTodosByDeveloperId(developerId: number): Observable<Todo[]> {
-    return this.api.getAllTodosByDeveloperId(developerId);
-  }
-
   // Simulate GET /todos?project_id=ID
-  getAllTodosByProjectId(projectId: number): Observable<Todo[]> {
+  getAllTodosByProjectId(projectId: number): Observable<{}> { //Observable<Todo[]> {
     return this.api.getAllTodosByProjectId(projectId);
   }
 

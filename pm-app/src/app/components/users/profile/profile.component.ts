@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 import { Angular2TokenService } from "angular2-token";
-import { AuthApiService } from "../../../services/auth-api/auth-api.service";
+import { AuthApiService } from "../../../services/auth/auth-api.service";
 
 @Component({
   selector: 'app-profile',

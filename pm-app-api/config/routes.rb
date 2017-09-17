@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   	member do
   		post 'add_developer'
       get 'developers'
+      get 'todos'
   	end
   end
 
@@ -14,6 +15,7 @@ Rails.application.routes.draw do
   	member do 
   		get 'todos'
       get 'projects'
+      get 'projects_dashboard'
   	end
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

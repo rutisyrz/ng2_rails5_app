@@ -8,7 +8,6 @@ class Ability
 
   def manager
     can :manage, :all
-    can :list_projects, User
   end
 
   def developer
@@ -17,7 +16,7 @@ class Ability
     can :update, Todo, user_id: @user.id
     can :read, Todo
     can :read, Project
-    can :list_todos, User
+    can :todos, User
   end
 
   # See the wiki for details:

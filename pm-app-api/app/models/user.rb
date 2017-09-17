@@ -21,12 +21,19 @@ class User < ApplicationRecord
     end
   end
 
+  # checks if user is a manager
   def manager?
   	(type == "Manager")
   end
 
+  # checks if user is a developer
   def developer?
   	(type == "Developer")
+  end
+
+  # Returns list of todos of a user (manager/ developer)
+  def todo_list
+    Todo.list(developer_id: id)
   end
 
 end
