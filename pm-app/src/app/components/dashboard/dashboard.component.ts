@@ -31,5 +31,10 @@ export class DashboardComponent implements OnInit {
       );
 	}
 
+  public fetchTodosByStatus(projectTodos, TodoStatus) {
+    return projectTodos[TodoStatus];
+  }
+
+
 
 }

@@ -21,40 +21,17 @@
 	</div>
 
   <div class="project" *ngFor='let project of projects'>
-			
 	  <div class="card-panel teal lighten-2"> <span class="flow-text "> {{project.project_name}} </span> </div>
-	  
-	  <div class="todo_block">
-	  	<p *ngFor='let todo of project.todos.unassigned'  >
-		  	<span>{{todo.todo_name}}</span><br />
-		  </p>
-	  </div>
 
-	  <div class="divider clearfix"></div>  
-	  
-	  <div class="todo_block">
-	  	<p *ngFor='let todo of project.todos.assigned'  >
-		  	<span>{{todo.todo_name}}</span><br />
-		  </p>
-	  </div>
-
-	  <div class="divider clearfix"></div>  
-	  
-	  <div class="todo_block">
-	  	<p *ngFor='let todo of project.todos.in_process'  >
-		  	<span>{{todo.todo_name}}</span><br />
-		  </p>
-	  </div>
-
-	  <div class="divider clearfix"></div>  
-	  
-	  <div class="todo_block">
-	  	<p *ngFor='let todo of project.todos.complete'  >
-		  	<span>{{todo.todo_name}}</span><br />
-		  </p>
-	  </div>
-
+	  <span *ngFor='let status of options'>
+			<div class="todo_block">	
+				<!-- <p *ngFor='let todo of project.todos.unassigned'  > -->
+				<p *ngFor='let todo of fetchTodosByStatus(project.todos, status)'  >	
+			  	<span>{{todo.todo_name}}</span><br />
+			  </p>
+			</div>
+			<div class="divider clearfix"></div>  
+		</span>
 	</div>
 
 </div>
-
