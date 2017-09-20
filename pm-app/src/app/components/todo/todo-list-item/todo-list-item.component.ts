@@ -9,7 +9,11 @@ import { Todo } from '../../../models/todo';
 
 export class TodoListItemComponent {
 
-  @Input() todo: Todo;
+  @Input() 
+  todo: Todo;
+
+  @Input() 
+  tempalteType: String;
 
   @Output()
   edit: EventEmitter<Todo> = new EventEmitter();

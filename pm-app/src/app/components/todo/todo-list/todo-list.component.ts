@@ -17,6 +17,8 @@ import { Todo } from '../../../models/todo';
 export class TodoListComponent implements OnInit {
 
   todos: Todo[] = [];
+  public todoItemType = "item-large";
+  public todoItemHeaderType = "header-large";
 
   constructor(private baseService: BaseService,
               private todoDataService: TodoDataService,

@@ -48,20 +48,14 @@
 				</span>
 				<div class="divider"></div>  
 
+				<app-todo-list-item [tempalteType]="todoItemHeaderType"
+			    										(edit)="onEditTodo($event)"> 
+		    </app-todo-list-item>	
+
 				<div *ngFor="let todo of todos">
-
-				  <div class="row card-panel grey lighten-5">
-					  <div class="col s12 m6 l7">
-					  	{{todo.name}}
-					  </div>		  
-					  <div class="col s12 m3 l3">
-					  	{{todo.status}}
-					  </div>
-					  <div class="col s12 m3 l2">
-					    <a [routerLink]="['/todos', todo.id, 'edit']">Edit </a>
-					  </div>
-					</div>	
-
+				  <app-todo-list-item [todo]="todo" [tempalteType]="todoItemType"
+			    										(edit)="onEditTodo($event)"> 
+			    </app-todo-list-item>					  
 				</div>
 			</div>
 		</div>

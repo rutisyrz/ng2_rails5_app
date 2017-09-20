@@ -1,14 +1,65 @@
-<div class="row card-panel grey lighten-5">
-  <div class="col s12 m4 l5">
-  	{{todo.name}}
+<!-- TODO large list header block -->
+<div *ngIf="tempalteType=='header-large'">
+  <div class="row card-panel teal lighten-2">
+    <div class="col s12 m4 l5">
+      Title
+    </div>
+    <div class="col s12 m4 l4">
+      Project
+    </div>
+    <div class="col s12 m2 l2">
+      Status
+    </div>
+    <div class="col s12 m2 l1">
+      Action
+    </div>
   </div>
-  <div class="col s12 m4 l4">
-  	{{todo.project}}
-  </div>
-  <div class="col s12 m2 l2">
-  	{{todo.status}}    
-  </div>
-  <div class="col s12 m2 l1">
-    <a [routerLink]="['/todos', todo.id, 'edit']">Edit </a>
-  </div>
-</div>	
+</div>
+
+<!-- TODO large list item block -->
+<div *ngIf="tempalteType=='item-large'">
+  <div class="row card-panel grey lighten-5">
+    <div class="col s12 m4 l5">
+    	{{todo.name}}
+    </div>
+    <div class="col s12 m4 l4">
+    	{{todo.project}}
+    </div>
+    <div class="col s12 m2 l2">
+    	{{todo.status}}    
+    </div>
+    <div class="col s12 m2 l1">
+      <a [routerLink]="['/todos', todo.id, 'edit']">Edit </a>
+    </div>
+  </div>	
+</div>
+
+<!-- TODO small list header block -->
+<div *ngIf="tempalteType=='header-small'">
+  <div class="row card-panel teal lighten-2">
+    <div class="col s12 m6 l7">
+      Title
+    </div>      
+    <div class="col s12 m3 l3">
+      Status
+    </div>
+    <div class="col s12 m3 l2">
+      Action
+    </div>
+  </div>  
+</div>  
+
+<!-- TODO small list item block -->
+<div *ngIf="tempalteType=='item-small'">
+  <div class="row card-panel grey lighten-5">
+    <div class="col s12 m6 l7">
+      {{todo.name}}
+    </div>      
+    <div class="col s12 m3 l3">
+      {{todo.status}}
+    </div>
+    <div class="col s12 m3 l2">
+      <a [routerLink]="['/todos', todo.id, 'edit']">Edit </a>
+    </div>
+  </div>  
+</div>  

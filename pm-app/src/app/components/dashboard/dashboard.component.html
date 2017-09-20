@@ -25,7 +25,6 @@
 
 	  <span *ngFor='let status of options'>
 			<div class="todo_block">	
-				<!-- <p *ngFor='let todo of project.todos.unassigned'  > -->
 				<p *ngFor='let todo of fetchTodosByStatus(project.todos, status)'  >	
 			  	<span>{{todo.todo_name}}</span><br />
 			  </p>

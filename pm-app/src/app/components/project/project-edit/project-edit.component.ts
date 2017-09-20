@@ -26,6 +26,9 @@ export class ProjectEditComponent implements OnInit {
   projectId: number;
   pieChartData: {};
 
+  public todoItemType = "item-small";
+  public todoItemHeaderType = "header-small";
+
   constructor(public baseService: BaseService,
   						private route: ActivatedRoute,
               private projectDataService: ProjectDataService,

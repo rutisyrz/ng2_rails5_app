@@ -21,23 +21,13 @@
 	</span>
 	
 	<div class="divider"></div>
-	
-	<div class="row card-panel teal lighten-2">
-	  <div class="col s12 m4 l5">
-	  	Title
-	  </div>
-	  <div class="col s12 m4 l4">
-	  	Project
-	  </div>
-	  <div class="col s12 m2 l2">
-	  	Status
-	  </div>
-	  <div class="col s12 m2 l1">
-	  	Action
-	  </div>
-  </div>
+
+  <app-todo-list-item [tempalteType]="todoItemHeaderType"
+    										(edit)="onEditTodo($event)"> 
+  </app-todo-list-item>	
+
 	<div *ngFor="let todo of todos">
-	  <app-todo-list-item [todo]="todo"
+	  <app-todo-list-item [todo]="todo" [tempalteType]="todoItemType"
     										(edit)="onEditTodo($event)"> 
     </app-todo-list-item>	
 	</div>
