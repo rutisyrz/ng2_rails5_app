@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  load_and_authorize_resource
-  before_action :authenticate_user!, :except => [:todos]
+  load_and_authorize_resource :except => [:todos]
+  before_action :authenticate_user!
   
   # GET /users
   def index
